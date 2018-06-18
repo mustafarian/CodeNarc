@@ -78,7 +78,7 @@ javadoc {
 uploadArchives {
     repositories {
         mavenDeployer {
-            beforeDeployment { deployment -> signing.signPom(deployment) }
+            // beforeDeployment { deployment -> signing.signPom(deployment) }
 
             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
                 authentication(userName: ossrhUsername, password: ossrhPassword)
