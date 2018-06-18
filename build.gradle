@@ -63,9 +63,9 @@ artifacts {
     archives javadocJar, sourcesJar
 }
 
-signing {
-    sign configurations.archives
-}
+// signing {
+//     sign configurations.archives
+// }
 
 javadoc {
     if (JavaVersion.current().java8Compatible) {
@@ -73,49 +73,49 @@ javadoc {
     }
 }
 
-// Publish to Sonatype (OSSRH) Maven Repository
-// See http://central.sonatype.org/pages/gradle.html
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            // beforeDeployment { deployment -> signing.signPom(deployment) }
+// // Publish to Sonatype (OSSRH) Maven Repository
+// // See http://central.sonatype.org/pages/gradle.html
+// uploadArchives {
+//     repositories {
+//         mavenDeployer {
+//             // beforeDeployment { deployment -> signing.signPom(deployment) }
 
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
+//             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+//                 authentication(userName: ossrhUsername, password: ossrhPassword)
+//             }
 
-            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
+//             snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+//                 authentication(userName: ossrhUsername, password: ossrhPassword)
+//             }
 
-            pom.project {
-                name 'CodeNarc'
-                packaging 'jar'
-                // optionally artifactId can be defined here
-                description 'The CodeNarc project provides a static analysis tool for Groovy code.'
-                url 'http://codenarc.org'
+//             pom.project {
+//                 name 'CodeNarc'
+//                 packaging 'jar'
+//                 // optionally artifactId can be defined here
+//                 description 'The CodeNarc project provides a static analysis tool for Groovy code.'
+//                 url 'http://codenarc.org'
 
-                scm {
-                    connection 'scm:git:git@github.com:CodeNarc/CodeNarc.git'
-                    developerConnection 'scm:git:git@github.com:CodeNarc/CodeNarc.git'
-                    url 'scm:git:git@github.com:CodeNarc/CodeNarc.git'
-                }
+//                 scm {
+//                     connection 'scm:git:git@github.com:CodeNarc/CodeNarc.git'
+//                     developerConnection 'scm:git:git@github.com:CodeNarc/CodeNarc.git'
+//                     url 'scm:git:git@github.com:CodeNarc/CodeNarc.git'
+//                 }
 
-                licenses {
-                    license {
-                        name 'The Apache License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
+//                 licenses {
+//                     license {
+//                         name 'The Apache License, Version 2.0'
+//                         url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                     }
+//                 }
 
-                developers {
-                    developer {
-                        id 'chrismair'
-                        name 'Chris Mair'
-                        email 'chrismair@users.sourceforge.net'
-                    }
-                }
-            }
-        }
-    }
-}
+//                 developers {
+//                     developer {
+//                         id 'chrismair'
+//                         name 'Chris Mair'
+//                         email 'chrismair@users.sourceforge.net'
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
