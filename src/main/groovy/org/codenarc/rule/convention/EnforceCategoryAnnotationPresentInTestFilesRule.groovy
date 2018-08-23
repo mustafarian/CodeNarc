@@ -36,7 +36,7 @@ class EnforceCategoryAnnotationPresentInTestFilesAstVisitor extends AbstractAstV
 
   @Override
   protected void visitClassEx(ClassNode node) {
-    if (node.name.endsWith("Test")) {
+    if (node.name.endsWith("Test") && !node.isInterface()) {
       if (!AstUtil.hasAnnotation(node, "Category")) {
         addViolation node, "@Category annotation not present on test class."
       } else if (!node.module.imports.any {

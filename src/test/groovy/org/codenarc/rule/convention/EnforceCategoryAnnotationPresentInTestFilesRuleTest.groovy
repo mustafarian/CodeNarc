@@ -42,6 +42,9 @@ class EnforceCategoryAnnotationPresentInTestFilesRuleTest extends AbstractRuleTe
 
     class MyClass {
     }
+    
+    @interface IntegrationTest {
+    }
     '''
     assertNoViolations(SOURCE)
   }
